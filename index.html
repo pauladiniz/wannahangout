@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>so...</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            background-color: #f9f9f9;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            position: relative;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .hidden {
+            display: none;
+        }
+        button {
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            background-color: #e0476b;
+            color: white;
+        }
+        .no {
+            background-color: #d4d4d4;
+        }
+        .footer {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            font-size: 10px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div id="question-container">
+        <h2>wanna hang out again?</h2>
+        <button class="yes" onclick="showCat()">Yes</button>
+        <button class="no" disabled>No</button>
+    </div>
+    
+    <div class="hidden" id="cat-container">
+        <img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExZ3UyOWxzaDhnOTdkdGtpOTF0azNndnY5MXFoeWN5MmVrdTZpcXNoNSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/nv71Yj316OHQXq3rcv/giphy.gif" alt="Cute cat">
+    </div>
+    
+    <div class="footer">Made with ❤️ by - a very bored - Paula Diniz</div>
+    
+    <script>
+        function showCat() {
+            document.getElementById('question-container').classList.add('hidden');
+            document.getElementById('cat-container').classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
