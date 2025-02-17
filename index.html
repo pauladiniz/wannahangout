@@ -15,6 +15,7 @@
             font-family: Arial, sans-serif;
             text-align: center;
             position: relative;
+            overflow: hidden;
         }
         .container {
             background: white;
@@ -24,6 +25,11 @@
         }
         .hidden {
             display: none;
+        }
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
         }
         button {
             margin: 10px;
@@ -37,10 +43,12 @@
         }
         .no {
             background-color: #d4d4d4;
+            position: relative;
+            transition: left 0.2s, top 0.2s;
         }
         .footer {
-            position: center;
-            bottom: 0px;
+            position: absolute;
+            bottom: 10px;
             font-size: 10px;
             color: #555;
         }
@@ -49,12 +57,14 @@
 <body>
     <div id="question-container">
         <h2>wanna hang out again?</h2>
-        <button class="yes" onclick="showCat()">Yes</button>
-        <button class="no" disabled>No</button>
+        <div class="button-container">
+            <button class="yes" onclick="showCat()">Yes</button>
+            <button class="no" id="no-button" onmouseover="moveButton()">No</button>
+        </div>
     </div>
     
     <div class="hidden" id="cat-container">
-        <img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExZ3UyOWxzaDhnOTdkdGtpOTF0azNndnY5MXFoeWN5MmVrdTZpcXNoNSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/nv71Yj316OHQXq3rcv/giphy.gif" alt="Cute cat">
+        <img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExZ3UyOWxzaDhnOTdkdGtpOTF0azNndnY5MXFoeWN5MmVrdTZpcXNoNSZlcD12MV9pbnRlcm5naWZfYnlfaWQmY3Q9Zw/nv71Yj316OHQXq3rcv/giphy.gif" alt="Cute cat">
     </div>
     
     <div class="footer">Made with ✨ by a bored developer</div>
@@ -63,6 +73,17 @@
         function showCat() {
             document.getElementById('question-container').classList.add('hidden');
             document.getElementById('cat-container').classList.remove('hidden');
+        }
+
+        function moveButton() {
+            const button = document.getElementById('no-button');
+            const maxX = window.innerWidth - button.clientWidth - 20;
+            const maxY = window.innerHeight - button.clientHeight - 20;
+            const randomX = Math.random() * maxX;
+            const randomY = Math.random() * maxY;
+            button.style.position = 'absolute';
+            button.style.left = `${randomX}px`;
+            button.style.top = `${randomY}px`;
         }
     </script>
 </body>
